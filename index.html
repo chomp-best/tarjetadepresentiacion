@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eliseo | Digital Strategist — Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
+        
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .apple-card-dark {
+            background: #0a0a0a;
+            border: 1px solid #1c1c1e;
+            border-radius: 40px;
+        }
+
+        .glass-button {
+            background: #ffffff;
+            color: #000000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-button:hover {
+            background: #f5f5f7;
+            transform: translateY(-2px);
+        }
+
+        .ai-button {
+            background: linear-gradient(135deg, #2c2c2e 0%, #000 100%);
+            border: 1px solid #333336;
+            color: #fff;
+            transition: all 0.4s ease;
+        }
+
+        .ai-button:hover {
+            border-color: #0071e3;
+            box-shadow: 0 0 15px rgba(0, 113, 227, 0.3);
+        }
+
+        .outline-button {
+            border: 1px solid #333336;
+            transition: all 0.3s ease;
+        }
+
+        .outline-button:hover {
+            background: #1c1c1e;
+            border-color: #48484a;
+        }
+
+        .feature-icon {
+            background: linear-gradient(135deg, #2c2c2e 0%, #1c1c1e 100%);
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .text-gradient {
+            background: linear-gradient(180deg, #ffffff 0%, #a1a1a6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Modal AI Styles */
+        #ai-modal {
+            display: none;
+            backdrop-filter: blur(20px);
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal-content {
+            background: #1c1c1e;
+            border: 1px solid #333336;
+            border-radius: 32px;
+        }
+
+        .loading-dots:after {
+            content: '.';
+            animation: dots 1.5s steps(5, end) infinite;
+        }
+
+        @keyframes dots {
+            0%, 20% { content: '.'; }
+            40% { content: '..'; }
+            60% { content: '...'; }
+            80%, 100% { content: ''; }
+        }
+
+        .about-section {
+            border-left: 2px solid #333336;
+            padding-left: 1.5rem;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #333336;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+    <div class="max-w-[400px] w-full apple-card-dark p-10 fade-in shadow-2xl relative my-8">
+        
+        <!-- Header -->
+        <div class="text-center mb-10">
+            <div class="w-16 h-16 bg-white rounded-[1.4rem] mx-auto flex items-center justify-center mb-8">
+                <span class="text-black text-3xl font-light tracking-tighter">e.</span>
+            </div>
+            <h1 class="text-4xl font-semibold tracking-tight text-gradient mb-2">Eliseo</h1>
+            <p class="text-[12px] font-semibold tracking-[0.2em] text-[#a1a1a6] uppercase">Consultor Digital Premium</p>
+        </div>
+
+        <!-- Misión Restaurada -->
+        <div class="about-section mb-10 space-y-4">
+            <div class="reveal">
+                <p class="text-[10px] font-bold text-[#0071e3] uppercase tracking-widest mb-1">Misión</p>
+                <p class="text-[13px] text-gray-300 leading-relaxed font-light">
+                    Soy un <span class="text-white font-medium">Consultor Digital</span> de 19 años. Me especializo en crear <span class="text-white font-medium">Web Apps de estética Premium</span> para negocios que buscan profesionalizar su imagen y automatizar sus ventas. 
+                </p>
+            </div>
+            <div class="reveal">
+                <p class="text-[13px] text-gray-300 leading-relaxed font-light">
+                    Mi enfoque combina el diseño minimalista tipo Apple con la utilidad funcional necesaria para que el dueño del negocio <span class="text-white font-medium">recupere su tiempo</span>.
+                </p>
+            </div>
+        </div>
+
+        <!-- Especialista Section -->
+        <div class="mb-12">
+            <p class="text-[10px] font-bold text-gray-500 uppercase tracking-[0.2em] mb-6">Especialista en:</p>
+            
+            <div class="space-y-6">
+                <!-- Item 1 -->
+                <div class="flex items-center space-x-4">
+                    <div class="w-10 h-10 feature-icon rounded-xl flex items-center justify-center border border-[#333336]">
+                        <i class="fa-solid fa-wand-magic-sparkles text-xs text-white"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-[14px] font-medium text-white">IA & Automatización</h3>
+                        <p class="text-[11px] text-[#86868b]">Sistemas inteligentes de venta 24/7.</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="flex items-center space-x-4">
+                    <div class="w-10 h-10 feature-icon rounded-xl flex items-center justify-center border border-[#333336]">
+                        <i class="fa-solid fa-mobile-screen-button text-xs text-white"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-[14px] font-medium text-white">Arquitectura UX Pro</h3>
+                        <p class="text-[11px] text-[#86868b]">Diseño Apple-style enfocado en conversión.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="flex items-center space-x-4">
+                    <div class="w-10 h-10 feature-icon rounded-xl flex items-center justify-center border border-[#333336]">
+                        <i class="fa-solid fa-chart-line text-xs text-white"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-[14px] font-medium text-white">Estrategia de Crecimiento</h3>
+                        <p class="text-[11px] text-[#86868b]">Escalabilidad para negocios B2B y Retail.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Buttons Section -->
+        <div class="space-y-4">
+            <!-- ✨ Gemini Power Feature -->
+            <button onclick="openAIModal()" class="ai-button flex items-center justify-center w-full py-4 rounded-2xl text-[15px] font-semibold gap-2">
+                <span>✨ Consultoría IA Instantánea</span>
+            </button>
+
+            <!-- WhatsApp Link actualizado con el número y mensaje prellenado -->
+            <a href="https://wa.me/543795041420?text=Hola%20Eliseo,%20vi%20tu%20tarjeta%20digital%20y%20me%20gustaría%20iniciar%20un%20proyecto%20contigo." target="_blank" class="glass-button flex items-center justify-center w-full py-4 rounded-2xl text-[15px] font-semibold">
+                Iniciar Proyecto
+            </a>
+            
+            <a href="proyectos.html" class="outline-button flex items-center justify-center w-full py-4 rounded-2xl text-[15px] font-semibold text-white">
+                Explorar Demos
+            </a>
+
+            <button onclick="downloadVCard()" class="w-full text-center pt-6">
+                <span class="text-[11px] font-medium text-[#0071e3] hover:text-[#2997ff] transition-colors cursor-pointer tracking-wide">
+                    Guardar contacto en Wallet
+                </span>
+            </button>
+        </div>
+
+        <!-- Footer / Social -->
+        <div class="mt-14 pt-8 border-t border-[#1c1c1e] flex justify-between items-center">
+            <div class="flex space-x-6 text-[#a1a1a6]">
+                <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram text-lg"></i></a>
+                <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-linkedin-in text-lg"></i></a>
+            </div>
+            <p class="text-[9px] text-[#424245] font-bold tracking-[0.2em] uppercase">E. Strategy 2025</p>
+        </div>
+    </div>
+
+    <!-- AI Strategy Modal -->
+    <div id="ai-modal" class="fixed inset-0 z-50 flex items-center justify-center p-6">
+        <div class="modal-content w-full max-w-[400px] p-8 relative shadow-2xl">
+            <button onclick="closeAIModal()" class="absolute top-6 right-6 text-gray-500 hover:text-white">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            
+            <div class="mb-6">
+                <h2 class="text-xl font-bold text-white mb-2">✨ Estrategia Digital IA</h2>
+                <p class="text-xs text-[#a1a1a6]">Describe tu negocio y te daré 3 claves para escalarlo con diseño y tecnología.</p>
+            </div>
+
+            <textarea id="business-desc" 
+                class="w-full bg-[#0a0a0a] border border-[#333336] rounded-2xl p-4 text-sm text-white focus:outline-none focus:border-[#0071e3] transition-colors mb-4 h-32"
+                placeholder="Ej: Tengo un showroom de ropa de mujer y vendo por Instagram..."></textarea>
+
+            <button onclick="generateAIStrategy()" id="generate-btn" 
+                class="w-full bg-[#0071e3] text-white py-4 rounded-2xl font-semibold text-sm hover:bg-[#0077ed] transition-all">
+                Generar mi Estrategia
+            </button>
+
+            <div id="ai-response" class="hidden mt-6 pt-6 border-t border-[#333336] max-h-60 overflow-y-auto custom-scrollbar">
+                <div class="text-sm text-gray-200 leading-relaxed whitespace-pre-wrap italic" id="response-text"></div>
+                <button onclick="copyResponse()" class="mt-4 text-[10px] text-blue-500 font-bold uppercase tracking-widest hover:text-blue-400">
+                    Copiar Estrategia
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const apiKey = ""; // API Key provided by environment
+
+        function openAIModal() {
+            document.getElementById('ai-modal').style.display = 'flex';
+        }
+
+        function closeAIModal() {
+            document.getElementById('ai-modal').style.display = 'none';
+        }
+
+        async function fetchWithRetry(url, options, retries = 5, backoff = 1000) {
+            try {
+                const response = await fetch(url, options);
+                if (!response.ok) throw new Error('Network response was not ok');
+                return await response.json();
+            } catch (err) {
+                if (retries <= 0) throw err;
+                await new Promise(resolve => setTimeout(resolve, backoff));
+                return fetchWithRetry(url, options, retries - 1, backoff * 2);
+            }
+        }
+
+        async function generateAIStrategy() {
+            const desc = document.getElementById('business-desc').value;
+            if (!desc) return;
+
+            const btn = document.getElementById('generate-btn');
+            const responseDiv = document.getElementById('ai-response');
+            const textDiv = document.getElementById('response-text');
+
+            btn.disabled = true;
+            btn.innerHTML = '<span class="loading-dots">Analizando negocio</span>';
+            responseDiv.classList.add('hidden');
+
+            const systemPrompt = `Eres el asistente estratégico de Eliseo, un Consultor Digital Premium de 19 años experto en diseño estilo Apple y Web Apps de alta conversión. 
+            Tu objetivo es dar consejos breves, profesionales y directos a clientes potenciales sobre cómo profesionalizar su imagen digital.
+            Estructura tu respuesta en 3 puntos clave:
+            1. Un consejo de Estética/Marca.
+            2. Un consejo de UX/Funcionalidad.
+            3. Por qué Eliseo es el indicado para este proyecto.
+            Tono: Sofisticado, minimalista y visionario. Máximo 150 palabras.`;
+
+            const userQuery = `Analiza este negocio y dame una estrategia: ${desc}`;
+
+            try {
+                const result = await fetchWithRetry(
+                    `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`,
+                    {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            contents: [{ parts: [{ text: userQuery }] }],
+                            systemInstruction: { parts: [{ text: systemPrompt }] }
+                        })
+                    }
+                );
+
+                const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
+                if (text) {
+                    textDiv.innerText = text;
+                    responseDiv.classList.remove('hidden');
+                } else {
+                    throw new Error('Sin respuesta');
+                }
+            } catch (error) {
+                textDiv.innerText = "Error al conectar con la consultoría. Por favor, intenta de nuevo más tarde.";
+                responseDiv.classList.remove('hidden');
+            } finally {
+                btn.disabled = false;
+                btn.innerText = 'Generar mi Estrategia';
+            }
+        }
+
+        function copyResponse() {
+            const text = document.getElementById('response-text').innerText;
+            const dummy = document.createElement("textarea");
+            document.body.appendChild(dummy);
+            dummy.value = text;
+            dummy.select();
+            document.execCommand("copy");
+            document.body.removeChild(dummy);
+            
+            const btn = document.querySelector('#ai-response button');
+            const originalText = btn.innerText;
+            btn.innerText = '¡COPIADO!';
+            setTimeout(() => btn.innerText = originalText, 2000);
+        }
+
+        function downloadVCard() {
+            const vcard = "BEGIN:VCARD\nVERSION:3.0\nFN:Eliseo Consultor Digital\nTEL;TYPE=CELL:+543795041420\nTITLE:Consultor Digital\nEND:VCARD";
+            const blob = new Blob([vcard], { type: "text/vcard" });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = 'Eliseo_Digital.vcf';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
