@@ -5,7 +5,9 @@ const App = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -44,17 +46,17 @@ const App = () => {
   return (
     <div className="min-h-screen bg-[#000000] text-white font-['Inter',sans-serif] selection:bg-[#0071E3] selection:text-white">
       
-      {/* Navegación */}
-      <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? 'py-4' : 'py-8'}`}>
-        <div className="max-w-7xl mx-auto px-8">
-          <div className={`backdrop-blur-xl bg-black/40 border border-white/5 rounded-full px-8 py-4 flex justify-between items-center transition-all duration-500 ${scrolled ? 'shadow-2xl' : ''}`}>
+      {/* Navegación - Glassmorphism incrementado */}
+      <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? 'py-4' : 'py-6 md:py-10'}`}>
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          <div className={`backdrop-blur-3xl bg-black/40 border border-white/20 rounded-full px-6 md:px-10 py-4 flex justify-between items-center transition-all duration-500 ${scrolled ? 'shadow-2xl border-white/30 bg-black/50' : ''}`}>
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
                 <span className="text-black font-bold text-sm">e.</span>
               </div>
-              <span className="font-semibold tracking-tighter text-xl uppercase">ELISEO STUDIO</span>
+              <span className="font-semibold tracking-tighter text-lg md:text-xl uppercase">ELISEO STUDIO</span>
             </div>
-            <div className="hidden md:flex gap-10 text-[11px] font-bold tracking-[0.3em] text-[#86868B] uppercase">
+            <div className="hidden md:flex gap-10 text-[10px] font-bold tracking-[0.3em] text-[#86868B] uppercase">
               <a href="#mision" className="hover:text-white transition-colors">Misión</a>
               <a href="#ia" className="hover:text-white transition-colors">IA Instantánea</a>
               <a href="#contacto" className="hover:text-white transition-colors">Infraestructura</a>
@@ -62,7 +64,7 @@ const App = () => {
             <a 
               href="https://wa.me/543795041420" 
               target="_blank"
-              className="bg-white text-black px-6 py-2 rounded-full text-[12px] font-bold hover:bg-[#F5F5F7] transition-all"
+              className="bg-white text-black px-5 md:px-6 py-2 rounded-full text-[11px] font-bold hover:bg-[#F5F5F7] transition-all"
             >
               CONTACTO
             </a>
@@ -70,22 +72,22 @@ const App = () => {
         </div>
       </nav>
 
-      {/* Hero Section - Ajustado padding-top para evitar solapamiento */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-8 text-center pt-40 md:pt-48">
-        <div className="animate-[fadeIn_1s_ease-out]">
-          <span className="text-[10px] md:text-[12px] font-bold tracking-[0.6em] text-[#0071E3] uppercase mb-8 block">
+      {/* Hero Section */}
+      <section className="relative min-h-screen flex flex-col items-center justify-center px-8 text-center pt-52 md:pt-64 pb-20">
+        <div className="animate-[fadeIn_1s_ease-out] w-full max-w-5xl">
+          <span className="text-[10px] md:text-[12px] font-bold tracking-[0.6em] text-[#0071E3] uppercase mb-12 block opacity-0 animate-[fadeIn_1s_ease-out_0.2s_forwards]">
             Arquitecto Digital
           </span>
-          <h1 className="text-5xl md:text-8xl font-bold tracking-[-0.04em] leading-[0.95] max-w-5xl mx-auto mb-10 bg-gradient-to-b from-white to-[#86868B] bg-clip-text text-transparent">
+          <h1 className="text-5xl md:text-8xl font-bold tracking-[-0.04em] leading-[1.1] md:leading-[0.95] mb-12 bg-gradient-to-b from-white to-[#86868B] bg-clip-text text-transparent">
             Arquitectura de Autoridad para Marcas de Élite.
           </h1>
-          <p className="text-xl md:text-2xl text-[#86868B] font-light max-w-2xl mx-auto mb-12 leading-relaxed">
-            Convertimos el potencial de su negocio en una <span className="text-white">infraestructura digital</span> de alto rendimiento.
+          <p className="text-lg md:text-2xl text-[#86868B] font-light max-w-2xl mx-auto mb-14 leading-relaxed">
+            Convertimos el potencial de su negocio en una <span className="text-white font-normal">infraestructura digital</span> de alto rendimiento.
           </p>
-          <div className="flex flex-col md:flex-row gap-6 justify-center animate-[slideUp_1s_ease-out]">
+          <div className="flex flex-col md:flex-row gap-6 justify-center animate-[slideUp_1s_ease-out_0.4s_forwards] opacity-0">
             <a 
               href="#contacto"
-              className="bg-[#0071E3] text-white px-10 py-5 rounded-full text-lg font-medium hover:bg-[#0077ED] transition-all flex items-center justify-center gap-2 group"
+              className="bg-[#0071E3] text-white px-10 py-5 rounded-full text-lg font-medium hover:bg-[#0077ED] transition-all flex items-center justify-center gap-2 group shadow-lg shadow-[#0071E3]/20"
             >
               Iniciar Proyecto
               <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
@@ -266,8 +268,8 @@ const App = () => {
 
       <style dangerouslySetInnerHTML={{ __html: `
         @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
+          from { opacity: 0; transform: translateY(15px); }
+          to { opacity: 1; transform: translateY(0); }
         }
         @keyframes slideUp {
           from { opacity: 0; transform: translateY(30px); }
