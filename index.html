@@ -54,8 +54,15 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.2); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+        }
+
         .animate-fade-in { animation: fadeIn 1s ease-out forwards; }
         .animate-slide-up { animation: slideUp 1s ease-out forwards; }
+        .animate-pulse-glow { animation: pulse-glow 2s infinite; }
         
         .delay-200 { animation-delay: 0.2s; }
         .delay-400 { animation-delay: 0.4s; }
@@ -77,6 +84,11 @@
             width: 0px;
             background: transparent;
         }
+
+        .mobile-island {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
     </style>
 </head>
 <body>
@@ -96,12 +108,23 @@
                     <a href="#servicios" class="hover:text-white transition-colors">Infraestructura</a>
                     <a href="#capacidades" class="hover:text-white transition-colors">Capacidades</a>
                 </div>
-                <a href="https://wa.me/543795041420" target="_blank" class="bg-white text-black px-4 md:px-6 py-2 rounded-full text-[10px] md:text-[11px] font-bold hover:bg-[#F5F5F7] transition-all">
+                <!-- Botón de contacto oculto en móviles (se mueve a la isla dinámica inferior) -->
+                <a href="https://wa.me/543795041420" target="_blank" class="hidden md:flex bg-white text-black px-4 md:px-6 py-2 rounded-full text-[10px] md:text-[11px] font-bold hover:bg-[#F5F5F7] transition-all">
                     CONTACTO
                 </a>
             </div>
         </div>
     </nav>
+
+    <!-- Isla Dinámica de Contacto (Mobile Only) -->
+    <div class="fixed bottom-8 left-1/2 -translate-x-1/2 z-[60] md:hidden w-auto">
+        <div class="mobile-island bg-white/90 border border-white/20 rounded-full p-1 shadow-2xl animate-pulse-glow">
+            <a href="https://wa.me/543795041420" target="_blank" class="flex items-center gap-3 px-6 py-3 bg-black rounded-full text-[11px] font-bold tracking-widest text-white uppercase whitespace-nowrap">
+                <span>INICIAR PROYECTO</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="text-white"><path d="M22 2L11 13"></path><path d="M22 2l-7 20-4-9-9-4 20-7z"></path></svg>
+            </a>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="relative min-h-screen flex flex-col items-center justify-center px-8 text-center pt-52 md:pt-64 pb-20">
