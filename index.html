@@ -104,7 +104,7 @@
                     <span class="font-semibold tracking-tighter text-sm md:text-xl uppercase hidden sm:block">ELISEO STUDIO</span>
                 </div>
                 <div class="flex gap-4 md:gap-10 text-[8px] md:text-[10px] font-bold tracking-[0.2em] md:tracking-[0.3em] text-[#86868B] uppercase">
-                    <a href="#mision" class="hover:text-white transition-colors">Misión</a>
+                    <a href="#metodologia" class="hover:text-white transition-colors">Metodología</a>
                     <a href="#servicios" class="hover:text-white transition-colors">Infraestructura</a>
                     <a href="#capacidades" class="hover:text-white transition-colors">Capacidades</a>
                 </div>
@@ -151,31 +151,43 @@
         </div>
     </section>
 
-    <!-- Misión Section -->
-    <section id="mision" class="py-[10rem] px-8 max-w-7xl mx-auto">
+    <!-- Metodología de Despliegue Section -->
+    <section id="metodologia" class="py-[10rem] px-8 max-w-7xl mx-auto">
         <div class="grid md:grid-cols-2 gap-16 items-center">
             <div>
-                <span class="text-[10px] font-bold tracking-[0.5em] text-[#0071E3] uppercase mb-4 block">Misión</span>
-                <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-8 text-gradient">El Arquitecto detrás del Código.</h2>
+                <span class="text-[10px] font-bold tracking-[0.5em] text-[#0071E3] uppercase mb-4 block">Metodología</span>
+                <h2 class="text-4xl md:text-5xl font-semibold tracking-tight mb-8 text-gradient">El Proceso detrás de la Autoridad.</h2>
                 <div class="space-y-6 text-lg font-light text-[#86868B] leading-relaxed">
                     <p>
-                        Como <span class="text-white font-medium">Arquitecto digital</span> de 19 años, me especializo en crear Web Apps de estética Premium para negocios que buscan profesionalizar su imagen y automatizar sus ventas.
+                        En <span class="text-white font-medium">Eliseo Studio</span>, no seguimos tendencias; establecemos estándares. Cada activo digital es sometido a un riguroso protocolo de diseño para garantizar la autoridad de marca.
                     </p>
                     <p>
-                        Mi enfoque combina el diseño minimalista tipo Apple con la utilidad funcional necesaria para que el dueño del negocio <span class="text-white font-medium">recupere su tiempo</span>.
+                        Nuestra ingeniería se basa en la <span class="text-white font-medium">precisión técnica</span> y el minimalismo funcional, permitiendo que su ecosistema digital trabaje de forma autónoma.
                     </p>
                 </div>
             </div>
-            <div class="bg-[#0A0A0A] border border-[#1C1C1E] p-12 rounded-[40px] flex flex-col items-center justify-center text-center">
-                <div class="w-20 h-20 bg-white rounded-3xl flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(255,255,255,0.1)]">
-                    <span class="text-black text-4xl font-light tracking-tighter">e.</span>
+            <div class="bg-[#0A0A0A] border border-[#1C1C1E] p-10 rounded-[40px] space-y-8">
+                <div class="flex gap-6 items-start">
+                    <div class="text-[#0071E3] font-bold text-xl mt-1">01.</div>
+                    <div>
+                        <h4 class="text-white font-semibold mb-1">Diagnóstico de Activos</h4>
+                        <p class="text-[#86868B] text-sm leading-relaxed">Análisis profundo del potencial de mercado y detección de fricciones operativas.</p>
+                    </div>
                 </div>
-                <h3 class="text-xl font-medium mb-4 tracking-tight">Eliseo Strategy</h3>
-                <p class="text-[#86868B] text-sm mb-6 uppercase tracking-widest font-bold">Protocolo de Autoridad</p>
-                <button onclick="downloadVCard()" class="flex items-center gap-2 text-[#0071E3] hover:text-[#2997ff] transition-colors font-medium text-sm border border-[#0071E3]/20 px-6 py-3 rounded-full hover:bg-[#0071E3]/5">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"></path><path d="M4 6v12c0 1.1.9 2 2 2h14v-4"></path><path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z"></path></svg>
-                    Guardar contacto en Wallet
-                </button>
+                <div class="flex gap-6 items-start">
+                    <div class="text-[#0071E3] font-bold text-xl mt-1">02.</div>
+                    <div>
+                        <h4 class="text-white font-semibold mb-1">Arquitectura UX Pro</h4>
+                        <p class="text-[#86868B] text-sm leading-relaxed">Modelado de flujos de conversión bajo principios de psicología del comportamiento.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6 items-start">
+                    <div class="text-[#0071E3] font-bold text-xl mt-1">03.</div>
+                    <div>
+                        <h4 class="text-white font-semibold mb-1">Despliegue de Élite</h4>
+                        <p class="text-[#86868B] text-sm leading-relaxed">Integración de sistemas inteligentes y lanzamiento de infraestructura de alto rendimiento.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -353,19 +365,6 @@
                 navbar.classList.remove('scrolled');
             }
         });
-
-        function downloadVCard() {
-            const vcard = "BEGIN:VCARD\nVERSION:3.0\nFN:Eliseo Consultor Digital\nTEL;TYPE=CELL:+543795041420\nTITLE:Consultor Digital\nEND:VCARD";
-            const blob = new Blob([vcard], { type: "text/vcard" });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.style.display = 'none';
-            a.href = url;
-            a.download = 'Eliseo_Digital.vcf';
-            document.body.appendChild(a);
-            a.click();
-            window.URL.revokeObjectURL(url);
-        }
     </script>
 </body>
 </html>
